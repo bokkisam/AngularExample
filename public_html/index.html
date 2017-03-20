@@ -8,7 +8,7 @@
             that root and compiles it into an internal representation. 
             This reading and compiling is the bootstrapping process.
 -->
-<html ng-app="angularExampleApp" ng-controller="AngularExampleController">
+<html ng-app="angularExampleApp">
     <head>
         <!--
                 AngularJS modules define AngularJS applications.
@@ -36,20 +36,19 @@
         <title>Angular JS Example</title>
     </head>
 
-    <body>
-        <a ng-href="vbookmarks.ng1StyleGuide">Angular 1 Style Guide</a><br>
-        <a ng-href="vbookmarks.ngModel">Angular JS NG Model</a>
+    <body  ng-controller="AngularExampleController">
+        <a ng-href="{{vbookmarks.ng1StyleGuide}}">Angular 1 Style Guide</a><br>
+        <a ng-href="{{vbookmarks.ngModel}}">Angular JS NG Model</a>
         <h1>Root Scope Demo</h1>
-        <a ng-href="vbookmarks.ngModuleGuide">Angular JS Module Guide</a>
+        <a ng-href="{{vbookmarks.ngModuleGuide}}">Angular JS Module Guide</a>
         <ul>
             <li>The rootScope's favorite color: {{color}} </li>
         </ul>
         
 
         <h1>Scope Demo</h1>
-        <a ng-href="vbookmarks.ngScopes">Understanding Scopes</a> <br>
-<!--        <a ng-href="vbookmarks.jsMinify">Angular JS Minification</a>-->
-        <a ng-href="https://jscompress.com">Angular JS Minification</a>
+        <a ng-href="{{vbookmarks.ngScopes}}">Understanding Scopes</a> <br>
+        <a ng-href="{{vbookmarks.jsMinify}}">Angular JS Minification</a>
         <div ng-controller="ScopeController as scopeDemoObj">
             <ul>
                 <li>Change local favorite color:
@@ -85,10 +84,10 @@
         <div ng-controller="DemoSwitchController">
             <div ng-switch on="demoFlag">
                 <div ng-switch-when="false">
-                    <button ng-click="demo()">Open ng-switch Demo</button>
+                    <button ng-click="demo(true)">Open ng-switch Demo</button>
                 </div>
                 <div ng-switch-when="true">
-                    <button ng-click="closeDemo()">Close ng-switch Demo</button>
+                    <button ng-click="demo(false)">Close ng-switch Demo</button>
 
                     <!--
                     The ng-init directive initializes AngularJS application variables.

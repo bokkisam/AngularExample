@@ -42,8 +42,14 @@
     The angularExampleController function is a JavaScript function.
 */
 /* global appModule */
-appModule.controller('AngularExampleController', function(){
-});
+appModule.controller('AngularExampleController',['$scope', 'vbookmarks', function($scope, vbookmarks){
+    $scope.vbookmarks = {
+        ngModel: vbookmarks.ngModel,
+        ngModuleGuide: vbookmarks.ngModuleGuide,
+        ng1StyleGuide: vbookmarks.ng1StyleGuide,
+        ngScopes: vbookmarks.ngScopes,
+        jsMinify: vbookmarks.jsMinify};
+}]);
 
 var ScopeController = function($scope, COLORS) {
     // Note: Even though COLORS is a constant, the data inside it can be modified
@@ -81,9 +87,9 @@ function GeoController() {
 
 appModule.controller('DemoSwitchController', function ($scope) {
     $scope.demoFlag = true;
-    $scope.demo = function () {
-        console.log($scope.demoFlag ? 'Demo on' : 'Demo off');
-        $scope.demoFlag = true;
+    $scope.demo = function (_demoFlag) {
+        console.log(_demoFlag ? 'Demo on' : 'Demo off');
+        $scope.demoFlag = _demoFlag ? true : false;
     };
     $scope.closeDemo = function () {
         console.log($scope.demoFlag ? 'Demo on' : 'Demo off');
