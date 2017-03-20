@@ -52,7 +52,7 @@ number but also a function. Value differs from constant in that value can not be
 injected into configurations, but it can be intercepted by decorators.
 */
 // TODO:
- appModule.value('bookmarks', 
+ appModule.value('vbookmarks', 
     {ngModel: "https://docs.angularjs.org/api/ng/directive/ngModel",
     ngModuleGuide: "https://docs.angularjs.org/guide/module",
     ng1StyleGuide: "https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md",
