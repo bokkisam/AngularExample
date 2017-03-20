@@ -1,0 +1,9 @@
+{
+    "elements": {
+        "w3-test-directive2": {},
+        "root-scope-color-directive": {}
+    },
+    "attributes": {
+        "w3-test-directive3": {}
+    }
+}
