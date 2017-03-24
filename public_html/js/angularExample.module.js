@@ -54,9 +54,13 @@ injected into configurations, but it can be intercepted by decorators.
 // TODO:
  appModule.value('vbookmarks', 
     {ngModel: "https://docs.angularjs.org/api/ng/directive/ngModel",
-    ngModuleGuide: "https://docs.angularjs.org/guide/module",
+    ngDevGuide: "https://docs.angularjs.org/guide",
+    ngModule: "https://docs.angularjs.org/guide/module",
     ng1StyleGuide: "https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md",
-    ngScopes: "https://github.com/angular/angular.js/wiki/Understanding-Scopes",
+    ngProvider: "https://docs.angularjs.org/guide/providers",
+    ngDirective: "https://docs.angularjs.org/guide/directive",
+    ngScope: "https://docs.angularjs.org/guide/scope",
+    ngUnderstandScopes: "https://github.com/angular/angular.js/wiki/Understanding-Scopes",
     jsMinify: "https://jscompress.com"}
     );
 

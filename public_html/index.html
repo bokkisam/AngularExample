@@ -37,18 +37,21 @@
     </head>
 
     <body  ng-controller="AngularExampleController">
+        <a ng-href="{{vbookmarks.ngDevGuide}}">Angular JS Developers Guide</a><br>
         <a ng-href="{{vbookmarks.ng1StyleGuide}}">Angular 1 Style Guide</a><br>
-        <a ng-href="{{vbookmarks.ngModel}}">Angular JS NG Model</a>
+        <a ng-href="{{vbookmarks.ngModel}}">Angular JS NG Model</a><br>
+        <a ng-href="{{vbookmarks.ngProvider}}">Angular JS Provider</a><br>
+        <a ng-href="{{vbookmarks.ngModule}}">Angular JS Module</a><br>
+        <a ng-href="{{vbookmarks.jsMinify}}">Angular JS Minification</a><br>
+
         <h1>Root Scope Demo</h1>
-        <a ng-href="{{vbookmarks.ngModuleGuide}}">Angular JS Module Guide</a>
         <ul>
             <li>The rootScope's favorite color: {{color}} </li>
         </ul>
-        
 
         <h1>Scope Demo</h1>
-        <a ng-href="{{vbookmarks.ngScopes}}">Understanding Scopes</a> <br>
-        <a ng-href="{{vbookmarks.jsMinify}}">Angular JS Minification</a>
+        <a ng-href="{{vbookmarks.ngScope}}">Angular JS Scope</a> <br>
+        <a ng-href="{{vbookmarks.ngUnderstandScopes}}">Understanding Scopes</a> <br>
         <div ng-controller="ScopeController as scopeDemoObj">
             <ul>
                 <li>Change local favorite color:
@@ -133,6 +136,15 @@
                         -->
                         <p>Full Name is <span ng-bind="fullName()"> </span> </p>
 
+                    </div>
+                    
+                    <h1>Root Scope Demo</h1>
+                    <div ng-controller="RootScopeController">
+                        <ul>
+                            <li>Change $rootScope favorite color:
+                                <input type="text" ng-model="rootColor">
+                            </li>
+                        </ul>
                     </div>
 
                     <h1>Person Records Add/Delete Demo</h1>
@@ -223,6 +235,7 @@
                                 </ul>
 
                             </form>
+                        </ul>
                     </div>
 
                     <h1>ng-show/ng-hide/ng-if Demo</h1>
@@ -321,7 +334,8 @@
         </div>
 
         <h1>Directives Demo</h1>
-        <div>
+        <a ng-href="{{vbookmarks.ngDirective}}">Angular JS Directive</a><br>
+        <div ng-controller="directiveController">
             <table border="1">
                 <tr>
                     <td>
@@ -330,11 +344,18 @@
                 </tr>
                 <tr>
                     <td>
-                <w3-test-directive2></w3-test-directive2>
-                </td>
+                        Enter Msg To Display: <input type="text" ng-model="dirMsg">
+                        <w3-test-directive2></w3-test-directive2>
+                    </td>
                 </tr>
                 <tr>
                     <td>
+                        <!--
+                        Way of embedding template in the same file
+                        -->
+                        <script type="text/ng-template" id="w3-test-directive3.html">
+                            <h4>This is made by a test directive3 template!</h4>
+                        </script>
                         <div w3-test-directive3></div>
                     </td>
                 </tr>
@@ -345,7 +366,6 @@
                 </tr>
             </table>
         </div>
-
 
         <script src="js/angularExample.module.js"></script>
         <script src="js/angularExample.services.js"></script>
