@@ -42,8 +42,18 @@
     The angularExampleController function is a JavaScript function.
 */
 /* global appModule */
-appModule.controller('AngularExampleController', function(){
-});
+appModule.controller('AngularExampleController',['$scope', 'vbookmarks', function($scope, vbookmarks){
+    $scope.vbookmarks = {
+        ngModel: vbookmarks.ngModel,
+        ngDevGuide: vbookmarks.ngDevGuide,
+        ngModule: vbookmarks.ngModule,
+        ng1StyleGuide: vbookmarks.ng1StyleGuide,
+        ngProvider: vbookmarks.ngProvider,
+        ngDirective: vbookmarks.ngDirective,
+        ngScope: vbookmarks.ngScope,
+        ngUnderstandScopes: vbookmarks.ngUnderstandScopes,
+        jsMinify: vbookmarks.jsMinify};
+}]);
 
 var ScopeController = function($scope, COLORS) {
     // Note: Even though COLORS is a constant, the data inside it can be modified
@@ -81,13 +91,9 @@ function GeoController() {
 
 appModule.controller('DemoSwitchController', function ($scope) {
     $scope.demoFlag = true;
-    $scope.demo = function () {
-        console.log($scope.demoFlag ? 'Demo on' : 'Demo off');
-        $scope.demoFlag = true;
-    };
-    $scope.closeDemo = function () {
-        console.log($scope.demoFlag ? 'Demo on' : 'Demo off');
-        $scope.demoFlag = false;
+    $scope.demo = function (_demoFlag) {
+        console.log(_demoFlag ? 'Demo on' : 'Demo off');
+        $scope.demoFlag = _demoFlag;
     };
 });
 
@@ -106,6 +112,9 @@ appModule.controller('InputController', function ($scope) {
     };
 });
 
+appModule.controller('RootScopeController', ['$scope', '$rootScope', function($scope, $rootScope) {
+    $scope.rootColor = $rootScope.color;
+}]);
 
 /*
     Inline Array Annotation
@@ -216,6 +225,10 @@ appModule.controller('DFController', ['$scope', '$timeout', '$rootScope', functi
     // setTimeout(function () {
 
     // });
+}]);
+
+appModule.controller('directiveController', ['$scope', function($scope) {
+    $scope.dir2Msg = "This is made by a test directive2!";
 }]);
 
 appModule.controller('NgHideShowIfController', ['$scope', function ($scope) {

@@ -25,14 +25,14 @@ appModule.directive("w3TestDirective1", function() {
 
 appModule.directive("w3TestDirective2", function() {
     return {
-        template: "<h3>This is made by a test directive2!<h3>"
+        template: "<h3>{{dir2Msg}}<h3><br><h3>{{dirMsg}}</h3>"
     };
 });
 
 appModule.directive("w3TestDirective3", function() {
     return {
         restrict: "A",
-        template: "<h4>This is made by a test directive3!</h4>"
+        templateUrl: "w3-test-directive3.html"
     };
 });
 
