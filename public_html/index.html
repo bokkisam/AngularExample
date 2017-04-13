@@ -8,9 +8,38 @@
             that root and compiles it into an internal representation. 
             This reading and compiling is the bootstrapping process.
 -->
-<html ng-app="angularExampleApp">
-    <head>
-        <!--
+<!--
+    1. Add the HTML5 doctype
+        Bootstrap uses HTML elements and CSS properties that require the HTML5 doctype.
+        Always include the HTML5 doctype at the beginning of the page, along with 
+        the lang attribute and the correct character set
+-->
+<html lang="en" ng-app="angularExampleApp">
+
+<head>
+    <meta charset="utf-8">
+    <!--
+            2. Bootstrap 3 is mobile-first
+                Bootstrap 3 is designed to be responsive to mobile devices. 
+                Mobile-first styles are part of the core framework.
+                To ensure proper rendering and touch zooming, add the following 
+                <meta> tag inside the <head> element
+                * The width=device-width part sets the width of the page to follow 
+                the screen-width of the device (which will vary depending on the device).
+                * The initial-scale=1 part sets the initial zoom level when 
+                the page is first loaded by the browser.
+        -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified bootstrap CSS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+    <!-- Optional bootstrap theme -->
+    <!--<script src="libs/bootstrap-3.3.7/css/bootstrap-theme.min.css"></script>-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--
                 AngularJS modules define AngularJS applications.
                 An AngularJS application consists of:
                     View, which is the HTML.
@@ -20,359 +49,394 @@
                 The ng-app directive defines the application, the ng-controller 
                     directive defines the controller.
         -->
-        <!--
+    <!--
                         The ng-app directive defines the root element of an AngularJS application.
                         The ng-app directive will auto-bootstrap (automatically initialize) the application 
                     when a web page is loaded.
                 The ng-app directive tells AngularJS that it's containing element (e.g., <div>) 
                     is the "owner" of an AngularJS application.
         -->
-        <!--
+    <!--
                 AngularJS is a JavaScript framework. It is a library written in JavaScript.
                 AngularJS is distributed as a JavaScript file, and can be added to a web page with a script tag:
         -->
-        <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
-        <script src="css/angularExample.css"></script>
-        <title>Angular JS Example</title>
-    </head>
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
 
-    <body  ng-controller="AngularExampleController">
-        <a ng-href="{{vbookmarks.ngDevGuide}}">Angular JS Developers Guide</a><br>
-        <a ng-href="{{vbookmarks.ng1StyleGuide}}">Angular 1 Style Guide</a><br>
-        <a ng-href="{{vbookmarks.ngModel}}">Angular JS NG Model</a><br>
-        <a ng-href="{{vbookmarks.ngProvider}}">Angular JS Provider</a><br>
-        <a ng-href="{{vbookmarks.ngModule}}">Angular JS Module</a><br>
-        <a ng-href="{{vbookmarks.jsMinify}}">Angular JS Minification</a><br>
 
-        <h1>Root Scope Demo</h1>
-        <ul>
-            <li>The rootScope's favorite color: {{color}} </li>
-        </ul>
+    <script src="css/angularExample.css"></script>
+    <title>Angular JS Example</title>
+</head>
 
-        <h1>Scope Demo</h1>
-        <a ng-href="{{vbookmarks.ngScope}}">Angular JS Scope</a> <br>
-        <a ng-href="{{vbookmarks.ngUnderstandScopes}}">Understanding Scopes</a> <br>
-        <div ng-controller="ScopeController as scopeDemoObj">
-            <ul>
-                <li>Change local favorite color:
-                    <input type="text" ng-model="scopeDemoObj.color">
-                </li>
-                <li>
-                    The local favorite color: {{scopeDemoObj.color}} 
-                </li>
-                <li>Change Parent favorite color:
-                    <input type="text" ng-model="$parent.color">
-                </li>
-            </ul>
+<body ng-controller="AngularExampleController">
+    <!--
+            3. Containers
+                Bootstrap also requires a containing element to wrap site contents.
+                There are two container classes to choose from:
+                The .container class provides a responsive fixed width container
+                The .container-fluid class provides a full width container, spanning 
+                the entire width of the viewport
+            Note: Containers are not nestable (you cannot put a container inside another container).
+        -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="background-color:lightseagreen">
+                <h1>Angular JS Practice with Bootstrap</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="background-color:lightseagreen">
+                <p style="background-color:mediumaquamarine">
+                    <a ng-href="{{vbookmarks.ngDevGuide}}">Angular JS Developers Guide</a><br>
+                    <a ng-href="{{vbookmarks.ng1StyleGuide}}">Angular 1 Style Guide</a><br>
+                    <a ng-href="{{vbookmarks.ngModel}}">Angular JS NG Model</a><br>
+                    <a ng-href="{{vbookmarks.ngProvider}}">Angular JS Provider</a><br>
+                    <a ng-href="{{vbookmarks.ngModule}}">Angular JS Module</a><br>
+                    <a ng-href="{{vbookmarks.jsMinify}}">Angular JS Minification</a><br>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="background-color:greenyellow">
+                <h2>Root Scope Demo</h2>
+                <ul>
+                    <li>The rootScope's favorite color: {{color}} </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="background-color:violet">
+                <h2>Scope Demo</h2>
+                <a ng-href="{{vbookmarks.ngScope}}">Angular JS Scope</a> <br>
+                <a ng-href="{{vbookmarks.ngUnderstandScopes}}">Understanding Scopes</a> <br>
+            </div>
         </div>
 
-        <div ng-controller="ScopeController as scopeDemoObj">
-            <ul>
-                <li>Change local favorite color2:
-                    <input type="text" ng-model="scopeDemoObj.color2">
-                </li>
-                <li>
-                    The local favorite color2: {{scopeDemoObj.color2}} 
-                </li>
-            </ul>
-        </div>
-
-        <h1>GPS location Demo</h1>
-        <div ng-controller="GeoController">
-            <button ng-click="getGeoLocation()">Get GEO Location</button>
-            <label ng-bind="geoLocationDetails"></label>
-        </div>
-
-        <h1>ng-switch Demo</h1>
-        <div ng-controller="DemoSwitchController">
-            <div ng-switch on="demoFlag">
-                <div ng-switch-when="false">
-                    <button ng-click="demo(true)">Open ng-switch Demo</button>
+        <div class="row">
+            <div class="col-md-6" style="background-color:violet">
+                <div ng-controller="ScopeController as scopeDemoObj">
+                    <ul>
+                        <li>Change local favorite color:
+                            <input type="text" ng-model="scopeDemoObj.color">
+                        </li>
+                        <li>
+                            The local favorite color: {{scopeDemoObj.color}}
+                        </li>
+                        <li>Change Parent favorite color:
+                            <input type="text" ng-model="$parent.color">
+                        </li>
+                    </ul>
                 </div>
-                <div ng-switch-when="true">
-                    <button ng-click="demo(false)">Close ng-switch Demo</button>
-
-                    <!--
-                    The ng-init directive initializes AngularJS application variables.
-                    The ng-init directive defines initial values for an AngularJS application.
-                    Normally, you will not use ng-init. You will use a controller or module instead.
-                    You can use data-ng-, instead of ng-, if you want to make your page HTML valid.
-            e.g., <div ng-app="myApp" ng-controller="myCtrl" ng-init="firstName='Vishu'">
-                    -->
-                    <h1>Input Demo</h1>
-                    <div ng-controller="InputController" ng-init="firstName = 'John'; lastName = 'Doe'">
-                        <!--
-                        The ng-model directive binds the value of HTML controls 
-                (input, select, textarea) 
-                to application data. That means the ng-model directive binds 
-                the value of the input field to the application variable name.
-                        -->
-                        <p>First Name: <input type="text" ng-model="firstName"></p>
-                        <p>Last Name : <input type="text" ng-model="lastName"></p>
-
-                        <!--
-                AngularJS expressions can be written inside double braces: 
-                    {{ expression }}.
-                AngularJS expressions can also be written inside a directive: 
-                    ng-bind="expression".
-                AngularJS will resolve the expression, and return the result ("output" data)
-                    exactly where the expression is written.
-                AngularJS expressions are much like JavaScript expressions: 
-                    They can contain literals, operators, and variables.
-                        AngularJS expressions bind AngularJS data to HTML 
-                            the same way as the ng-bind directive.
-                Like JavaScript expressions, AngularJS expressions can contain 
-                    literals, operators, and variables.
-                Unlike JavaScript expressions, AngularJS expressions can be 
-                    written inside HTML.
-                AngularJS expressions do not support conditionals, loops, and exceptions, 
-                    while JavaScript expressions do.
-                AngularJS expressions support filters, while JavaScript expressions do not.
-                        -->
-                        <p>Full Name Expression: {{ firstName + " " + lastName}} </p>
-
-                        <!--
-                        The ng-bind directive binds application data to the HTML view.
-                        -->
-                        <p>Full Name is <span ng-bind="fullName()"> </span> </p>
-
-                    </div>
-                    
-                    <h1>Root Scope Demo</h1>
-                    <div ng-controller="RootScopeController">
-                        <ul>
-                            <li>Change $rootScope favorite color:
-                                <input type="text" ng-model="rootColor">
-                            </li>
-                        </ul>
-                    </div>
-
-                    <h1>Person Records Add/Delete Demo</h1>
-                    <div ng-controller="PersonRecordsController as prObj" ng-init="prObj.names=[];">
-                        First Name: <input type="text" ng-model="prObj.firstName"> 
-                        <br>
-                        Last Name: <input type="text" ng-model="prObj.lastName"> 
-                        <br>
-                        Country: <input type="text" ng-model="prObj.country"> 
-                        <br>
-                        <button ng-click="addPersonRecord()">Add Person</button> 
-                        <br>
-                        <h2>Person Records Database:</h2>
-                        <!--
-                        The ng-repeat directive repeats an HTML element:
-                        The ng-repeat directive actually clones HTML elements once 
-                    for each item in a collection.
-                When dealing with the ng-repeat directive, each repetition 
-                    has access to the current repetition object (e.g. item)
-                        -->
-                        <ul>
-                            <li ng-repeat="item in prObj.names">
-                                {{ item.name + ', ' + item.country}}
-                                <button ng-click="removePersonRecord($index)">Delete Person</button>
-                            </li>
-                        </ul>
-
-                    </div>
-
-                    <h1>CSS Update Demo</h1>
-                    <div ng-controller="CssController">
-                        <!--
-                Example: Let AngularJS change the value of CSS properties.
-                Change the color of the input box below, by changing its value:
-                        -->
-                        <input style="background-color: {{ inputBcColor}}" ng-model="inputBcColor" value="{{inputBcColor}}">
-                    </div>
-
-                    <h1>Number Input Calculations Demo</h1>
-                    <div ng-controller="MathController">
-                        <p> a: <input type="number" ng-model="val1"> </p>
-                        <p> b: <input type="number" ng-model="val2"> </p>
-                        <ul>
-                            <li> a + b = <span ng-bind="sum()"></span> </li>
-                            <li> a - b = <span ng-bind="diff()"></span> </li>
-                            <li> a * b = <span ng-bind="product()"></span> </li>
-                            <li> a / b = <span ng-bind="division()"></span> </li>
-                        </ul>
-                    </div>
-
-                    <h1>Form Demo</h1>
-                    <div ng-controller="FormController">
-                        <!--
-                The ng-model directive adds/removes the following classes, 
-                    according to the status of the form field:
-                    ng-empty
-                    ng-not-empty
-                    ng-touched
-                    ng-untouched
-                    ng-valid
-                    ng-invalid
-                    ng-dirty
-                    ng-pending
-                    ng-pristine
-                        -->
-                        <ul>
-                            <li>Form Input Validity</li>
-                            <form name="myFormOne" ng-init="myAddressOneText = abc">
-                                Check Email:
-                                <input type="email" name="myAddressOne" ng-model="myAddressOneText">
-                                <span ng-show="myFormOne.myAddressOne.$error.email"> Not a valid e-mail address</span>
-                            </form>
-
-                            <li>Form Input Data Status</li>
-                            <form name="myFormTwo" ng-init="myAddressTwoText = 'post@myweb.com'">
-                                Email:
-                                <input type="email" name="myAddressTwo" ng-model="myAddressTwoText" required> 
-                                <ul>
-                                    <li>
-                                        $valid =  {{myFormTwo.myAddressTwo.$valid}}
-                                    </li>
-                                    <li>
-                                        $dirty = {{myFormTwo.myAddressTwo.$dirty}}
-                                    </li>
-                                    <li>
-                                        $touched = {{myFormTwo.myAddressTwo.$touched}}
-                                    </li>
-                                </ul>
-
-                            </form>
-                        </ul>
-                    </div>
-
-                    <h1>ng-show/ng-hide/ng-if Demo</h1>
-                    <div ng-controller="NgHideShowIfController">
-                        <p><input type="text" ng-model="user.name" ng-show="toggleName">
-                            <input type="checkbox" ng-model="toggleName">Show Name</p>
-
-                        <p><input type="password" ng-model="user.password" ng-hide="togglePassword">
-                            <input type="checkbox" ng-model="togglePassword">Hide Password</p>
-
-                        <p><label ng-if="showLabel"> {{ user.name + " " + user.password}} </label>
-                        <input type="checkbox" ng-model="showLabel">Display Name and Password<p>
-                    </div>
-
-                    <h1>ng-repeat Demo</h1>
-                    <div ng-controller="NgRepeatController">
-
-                        <table border="1">
-                            <tr>
-                                <td>Record index #</td>
-                                <td>id</td>
-                                <td>name</td>
-                            </tr>
-                            <tr ng-repeat="(index, x) in cars">
-                                <td>{{ index}}</td>
-                                <td>{{ x.id}}</td>
-                                <td>{{ x.name}}</td>
-                            </tr>
-                        </table>
-
-                        <p>
-                            Select Car: 
-                            <select>
-                                <option ng-repeat="x in cars" value="{{x.name}}">
-                                    {{x.name}}
-                                </option>
-                            </select>
-                        </p>
-                    </div>
-
-                    <h1>Filter Demo</h1>
-                    <div ng-controller="FilterController">
-                        <!--
-                AngularJS provides filters to transform data:
-                    currency - Format a number to a currency format.
-                    date - Format a date to a specified format.
-                    filter - Select a subset of items from an array.
-                    json - Format an object to a JSON string.
-                    limitTo - Limits an array/string, into a specified number of elements/characters.
-                    lowercase - Format a string to lower case.
-                    number - Format a number to a string.
-                    orderBy - Orders an array by an expression.
-                    uppercase - Format a string to upper case.
-                        -->
-                        <!--
-                Filters are added to expressions by using the pipe character |, followed by a filter.
-                        -->
-                        <p>Enter Name: <input type="text" ng-model="name"></p>
-                        <p>Uppercase Name: {{ name | uppercase }} </p>
-                        <p>Lowercase Name: {{ name | lowercase }} </p>
-                        <!--
-                Filters are added to directives, like ng-repeat, by using the pipe character |, followed by a filter:
-                        -->
-                        <table border="1">
-                            <caption>orderBy (sort) Filter</caption>
-                            <tr>
-                                <th> <button ng-click="sortOrder('name')">Name</button></th>
-                                <th> <button ng-click="sortOrder('country')">Country</button></th>
-                            </tr>
-                            <tr ng-repeat="x in names| orderBy:mySortOrder">
-                                <td>{{ x.name}}</td>
-                                <td>{{ x.country}}</td>
-                            </tr>
-                        </table> <br>
-                        <table border="1">
-                            <caption>filter Filter</caption>
-                            <tr>
-                                <th>NameFilter<input type="text" ng-model="nameFilter"></th>
-                                <th>CountryFilter<input type="text" ng-model="countryFilter"></th>
-                            </tr>
-                            <tr ng-repeat="x in names| filter: { name: nameFilter , country: countryFilter }">
-                                <td>{{ x.name}}</td>
-                                <td>{{ x.country}}</td>
-                            </tr>
-                        </table> <br>
-                    </div>
+            </div>
+            <div class="col-md-6" style="background-color: lightblue">
+                <div ng-controller="ScopeController as scopeDemoObj">
+                    <ul>
+                        <li>Change local favorite color2:
+                            <input type="text" ng-model="scopeDemoObj.color2">
+                        </li>
+                        <li>
+                            The local favorite color2: {{scopeDemoObj.color2}}
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        
-        <h1>Differed Output Demo</h1>
-        <div ng-controller="DFController">
-            <input type="text" ng-model="fName">,
-            <input type="text" ng-model="lName">
-            {{ fullName}}
-        </div>
+        <div class="row">
+            <div class="col-md-12" style="background-color:aliceblue; padding-top:30px;">
+                <h2>GPS location Demo</h2>
+                <div ng-controller="GeoController">
+                    <button ng-click="getGeoLocation()">Get GEO Location</button>
+                    <label ng-bind="geoLocationDetails"></label>
+                </div>
 
-        <h1>Directives Demo</h1>
-        <a ng-href="{{vbookmarks.ngDirective}}">Angular JS Directive</a><br>
-        <div ng-controller="directiveController">
-            <table border="1">
-                <tr>
-                    <td>
-                        <div class="w3-test-directive1"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Enter Msg To Display: <input type="text" ng-model="dirMsg">
-                        <w3-test-directive2></w3-test-directive2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!--
-                        Way of embedding template in the same file
+                <h2>ng-switch Demo</h2>
+                <div ng-controller="DemoSwitchController">
+                    <div ng-switch on="demoFlag">
+                        <div ng-switch-when="false">
+                            <button ng-click="demo(true)">Open ng-switch Demo</button>
+                        </div>
+                        <div ng-switch-when="true">
+                            <button ng-click="demo(false)">Close ng-switch Demo</button>
+
+                            <!--
+                        The ng-init directive initializes AngularJS application variables.
+                        The ng-init directive defines initial values for an AngularJS application.
+                        Normally, you will not use ng-init. You will use a controller or module instead.
+                        You can use data-ng-, instead of ng-, if you want to make your page HTML valid.
+                e.g., <div ng-app="myApp" ng-controller="myCtrl" ng-init="firstName='Vishu'">
                         -->
-                        <script type="text/ng-template" id="w3-test-directive3.html">
-                            <h4>This is made by a test directive3 template!</h4>
-                        </script>
-                        <div w3-test-directive3></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                <root-scope-color-directive></root-scope-color-directive>
-                </td>
-                </tr>
-            </table>
+                            <h2>Input Demo</h2>
+                            <div ng-controller="InputController" ng-init="firstName = 'John'; lastName = 'Doe'">
+                                <!--
+                            The ng-model directive binds the value of HTML controls 
+                    (input, select, textarea) 
+                    to application data. That means the ng-model directive binds 
+                    the value of the input field to the application variable name.
+                            -->
+                                <p>First Name: <input type="text" ng-model="firstName"></p>
+                                <p>Last Name : <input type="text" ng-model="lastName"></p>
+
+                                <!--
+                    AngularJS expressions can be written inside double braces: 
+                        {{ expression }}.
+                    AngularJS expressions can also be written inside a directive: 
+                        ng-bind="expression".
+                    AngularJS will resolve the expression, and return the result ("output" data)
+                        exactly where the expression is written.
+                    AngularJS expressions are much like JavaScript expressions: 
+                        They can contain literals, operators, and variables.
+                            AngularJS expressions bind AngularJS data to HTML 
+                                the same way as the ng-bind directive.
+                    Like JavaScript expressions, AngularJS expressions can contain 
+                        literals, operators, and variables.
+                    Unlike JavaScript expressions, AngularJS expressions can be 
+                        written inside HTML.
+                    AngularJS expressions do not support conditionals, loops, and exceptions, 
+                        while JavaScript expressions do.
+                    AngularJS expressions support filters, while JavaScript expressions do not.
+                            -->
+                                <p>Full Name Expression: {{ firstName + " " + lastName}} </p>
+
+                                <!--
+                            The ng-bind directive binds application data to the HTML view.
+                            -->
+                                <p>Full Name is <span ng-bind="fullName()"> </span> </p>
+
+                            </div>
+
+                            <h2>Root Scope Demo</h2>
+                            <div ng-controller="RootScopeController">
+                                <ul>
+                                    <li>Change $rootScope favorite color:
+                                        <input type="text" ng-model="rootColor">
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <h2>Person Records Add/Delete Demo</h2>
+                            <div ng-controller="PersonRecordsController as prObj" ng-init="prObj.names = [];">
+                                First Name: <input type="text" ng-model="prObj.firstName">
+                                <br> Last Name: <input type="text" ng-model="prObj.lastName">
+                                <br> Country: <input type="text" ng-model="prObj.country">
+                                <br>
+                                <button ng-click="addPersonRecord()">Add Person</button>
+                                <br>
+                                <h2>Person Records Database:</h2>
+                                <!--
+                            The ng-repeat directive repeats an HTML element:
+                            The ng-repeat directive actually clones HTML elements once 
+                        for each item in a collection.
+                    When dealing with the ng-repeat directive, each repetition 
+                        has access to the current repetition object (e.g. item)
+                            -->
+                                <ul>
+                                    <li ng-repeat="item in prObj.names">
+                                        {{ item.name + ', ' + item.country}}
+                                        <button ng-click="removePersonRecord($index)">Delete Person</button>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                            <h2>CSS Update Demo</h2>
+                            <div ng-controller="CssController">
+                                <!--
+                    Example: Let AngularJS change the value of CSS properties.
+                    Change the color of the input box below, by changing its value:
+                            -->
+                                <input style="background-color: {{ inputBcColor}}" ng-model="inputBcColor" value="{{inputBcColor}}">
+                            </div>
+
+                            <h2>Number Input Calculations Demo</h2>
+                            <div ng-controller="MathController">
+                                <p> a: <input type="number" ng-model="val1"> </p>
+                                <p> b: <input type="number" ng-model="val2"> </p>
+                                <ul>
+                                    <li> a + b = <span ng-bind="sum()"></span> </li>
+                                    <li> a - b = <span ng-bind="diff()"></span> </li>
+                                    <li> a * b = <span ng-bind="product()"></span> </li>
+                                    <li> a / b = <span ng-bind="division()"></span> </li>
+                                </ul>
+                            </div>
+
+                            <h2>Form Demo</h2>
+                            <div ng-controller="FormController">
+                                <!--
+                    The ng-model directive adds/removes the following classes, 
+                        according to the status of the form field:
+                        ng-empty
+                        ng-not-empty
+                        ng-touched
+                        ng-untouched
+                        ng-valid
+                        ng-invalid
+                        ng-dirty
+                        ng-pending
+                        ng-pristine
+                            -->
+                                <ul>
+                                    <li>Form Input Validity</li>
+                                    <form name="myFormOne" ng-init="myAddressOneText = abc">
+                                        Check Email:
+                                        <input type="email" name="myAddressOne" ng-model="myAddressOneText">
+                                        <span ng-show="myFormOne.myAddressOne.$error.email"> Not a valid e-mail address</span>
+                                    </form>
+
+                                    <li>Form Input Data Status</li>
+                                    <form name="myFormTwo" ng-init="myAddressTwoText = 'post@myweb.com'">
+                                        Email:
+                                        <input type="email" name="myAddressTwo" ng-model="myAddressTwoText" required>
+                                        <ul>
+                                            <li>
+                                                $valid = {{myFormTwo.myAddressTwo.$valid}}
+                                            </li>
+                                            <li>
+                                                $dirty = {{myFormTwo.myAddressTwo.$dirty}}
+                                            </li>
+                                            <li>
+                                                $touched = {{myFormTwo.myAddressTwo.$touched}}
+                                            </li>
+                                        </ul>
+
+                                    </form>
+                                </ul>
+                            </div>
+
+                            <h2>ng-show/ng-hide/ng-if Demo</h2>
+                            <div ng-controller="NgHideShowIfController">
+                                <p><input type="text" ng-model="user.name" ng-show="toggleName">
+                                    <input type="checkbox" ng-model="toggleName">Show Name</p>
+
+                                <p><input type="password" ng-model="user.password" ng-hide="togglePassword">
+                                    <input type="checkbox" ng-model="togglePassword">Hide Password</p>
+
+                                <p><label ng-if="showLabel"> {{ user.name + " " + user.password}} </label>
+                                    <input type="checkbox" ng-model="showLabel">Display Name and Password
+                                    <p>
+                            </div>
+
+                            <h2>ng-repeat Demo</h2>
+                            <div ng-controller="NgRepeatController">
+
+                                <table border="1">
+                                    <tr>
+                                        <td>Record index #</td>
+                                        <td>id</td>
+                                        <td>name</td>
+                                    </tr>
+                                    <tr ng-repeat="(index, x) in cars">
+                                        <td>{{ index}}</td>
+                                        <td>{{ x.id}}</td>
+                                        <td>{{ x.name}}</td>
+                                    </tr>
+                                </table>
+
+                                <p>
+                                    Select Car:
+                                    <select>
+                                    <option ng-repeat="x in cars" value="{{x.name}}">
+                                        {{x.name}}
+                                    </option>
+                                </select>
+                                </p>
+                            </div>
+
+                            <h2>Filter Demo</h2>
+                            <div ng-controller="FilterController">
+                                <!--
+                    AngularJS provides filters to transform data:
+                        currency - Format a number to a currency format.
+                        date - Format a date to a specified format.
+                        filter - Select a subset of items from an array.
+                        json - Format an object to a JSON string.
+                        limitTo - Limits an array/string, into a specified number of elements/characters.
+                        lowercase - Format a string to lower case.
+                        number - Format a number to a string.
+                        orderBy - Orders an array by an expression.
+                        uppercase - Format a string to upper case.
+                            -->
+                                <!--
+                    Filters are added to expressions by using the pipe character |, followed by a filter.
+                            -->
+                                <p>Enter Name: <input type="text" ng-model="name"></p>
+                                <p>Uppercase Name: {{ name | uppercase }} </p>
+                                <p>Lowercase Name: {{ name | lowercase }} </p>
+                                <!--
+                    Filters are added to directives, like ng-repeat, by using the pipe character |, followed by a filter:
+                            -->
+                                <table border="1">
+                                    <caption>orderBy (sort) Filter</caption>
+                                    <tr>
+                                        <th> <button ng-click="sortOrder('name')">Name</button></th>
+                                        <th> <button ng-click="sortOrder('country')">Country</button></th>
+                                    </tr>
+                                    <tr ng-repeat="x in names| orderBy:mySortOrder">
+                                        <td>{{ x.name}}</td>
+                                        <td>{{ x.country}}</td>
+                                    </tr>
+                                </table> <br>
+                                <table border="1">
+                                    <caption>filter Filter</caption>
+                                    <tr>
+                                        <th>NameFilter<input type="text" ng-model="nameFilter"></th>
+                                        <th>CountryFilter<input type="text" ng-model="countryFilter"></th>
+                                    </tr>
+                                    <tr ng-repeat="x in names| filter: { name: nameFilter , country: countryFilter }">
+                                        <td>{{ x.name}}</td>
+                                        <td>{{ x.country}}</td>
+                                    </tr>
+                                </table> <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Differed Output Demo</h2>
+                <div ng-controller="DFController">
+                    <input type="text" ng-model="fName">,
+                    <input type="text" ng-model="lName"> {{ fullName}}
+                </div>
+
+                <h2>Directives Demo</h2>
+                <a ng-href="{{vbookmarks.ngDirective}}">Angular JS Directive</a><br>
+                <div ng-controller="directiveController">
+                    <table border="1">
+                        <tr>
+                            <td>
+                                <div class="w3-test-directive1"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Enter Msg To Display: <input type="text" ng-model="dirMsg">
+                                <w3-test-directive2></w3-test-directive2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!--
+                            Way of embedding template in the same file
+                            -->
+                                <script type="text/ng-template" id="w3-test-directive3.html">
+                                    <h4>This is made by a test directive3 template!</h4>
+                                </script>
+                                <div w3-test-directive3></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <root-scope-color-directive></root-scope-color-directive>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
-
-        <script src="js/angularExample.module.js"></script>
-        <script src="js/angularExample.services.js"></script>
-        <script src="js/angularExample.controller.js"></script>
-        <script src="js/angularExample.directive.js"></script>
-        <script src="js/testSnippets.js"></script>  
-
-    </body>
+    </div>
+    <script src="js/angularExample.module.js"></script>
+    <script src="js/angularExample.services.js"></script>
+    <script src="js/angularExample.controller.js"></script>
+    <script src="js/angularExample.directive.js"></script>
+    <script src="js/testSnippets.js"></script>
+</body>
 
 </html>
